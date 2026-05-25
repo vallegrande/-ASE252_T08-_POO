@@ -108,3 +108,61 @@ SELECT * FROM usuario;
 SELECT * FROM curso;
 SELECT * FROM estudiante;
 SELECT * FROM matricula;
+
+docker run --name mysql-vallegrande \
+  -e MYSQL_ROOT_PASSWORD=981837328 \
+  -e MYSQL_DATABASE=vallegrande_db_POO \
+  -p 3306:3306 \
+  -d mysql:latest
+
+  docker run --name mysql-vallegrande -e MYSQL_ROOT_PASSWORD=981837328 -e MYSQL_DATABASE=vallegrande_db_POO -p 3306:3306 -d mysql:latest
+
+
+
+  -- =============================================================
+-- 10 REGISTROS PARA LA TABLA: curso
+-- =============================================================
+INSERT INTO curso (codigo, nombre, creditos, horas_semana, descripcion) VALUES
+('INF201', 'Programación Orientada a Objetos', 4, 6, 'Conceptos de POO, clases, herencia y polimorfismo en Java y C#'),
+('INF202', 'Desarrollo Web Backend', 4, 5, 'Creación de arquitecturas web escalables utilizando Flask y Express'),
+('INF203', 'Análisis y Diseño de Sistemas', 3, 4, 'Modelado de software con UML, diagramas de clases y casos de uso'),
+('INF204', 'Estructuras de Datos', 4, 5, 'Gestión de memoria, listas, árboles, grafos y optimización de algoritmos'),
+('INF205', 'Desarrollo Web Frontend', 3, 4, 'Construcción de interfaces dinámicas con HTML5, Tailwind CSS y JavaScript'),
+('INF206', 'Aseguramiento de la Calidad', 2, 3, 'Pruebas unitarias, automatización de testing y metodologías QA'),
+('INF207', 'Gestión de Proyectos Ágiles', 3, 4, 'Administración de proyectos tecnológicos usando Scrum y Kanban'),
+('INF208', 'Seguridad de la Información', 3, 4, 'Criptografía básica, OWASP Top 10 y protección de bases de datos'),
+('INF209', 'Sistemas Operativos y Redes', 4, 5, 'Administración de servidores Linux, redes TCP/IP y Docker básico'),
+('INF210', 'Proyecto Integrador POO', 4, 6, 'Desarrollo de una aplicación real aplicando POO y persistencia de datos');
+
+
+-- =============================================================
+-- 10 REGISTROS PARA LA TABLA: estudiante
+-- =============================================================
+INSERT INTO estudiante (tipo_documento, numero_documento, nombres, apellidos, email, telefono, direccion, fecha_nacimiento, genero) VALUES
+('DNI', '70112233', 'Kevin Arnold', 'Chávez Palomino', 'kevin.chavez@vallegrande.edu.pe', '934567812', 'Av. Benavides 456 - Cañete', '2004-11-05', 'M'),
+('DNI', '70445566', 'Rosa María', 'Flores Huamán', 'rosa.flores@vallegrande.edu.pe', '956781234', 'Jr. Bolognesi 789 - Imperial', '2005-01-30', 'F'),
+('CE', '009876543', 'Jean Pierre', 'Dupond', 'jean.dupond@vallegrande.edu.pe', '978123456', 'Urb. Los Álamos Mz B Lote 4', '2003-07-14', 'M'),
+('DNI', '70223344', 'Luis Alberto', 'Sánchez Díaz', 'luis.sanchez@vallegrande.edu.pe', '911223344', 'Calle Comercio 123 - Mala', '2006-03-18', 'M'),
+('DNI', '70556677', 'Diana Carolina', 'Torres Gutiérrez', 'diana.torres@vallegrande.edu.pe', '955667788', 'Av. Mariscal Castilla 510', '2005-09-25', 'F'),
+('DNI', '70998877', 'Mateo Sebastián', 'Ruiz Castillo', 'mateo.ruiz@vallegrande.edu.pe', '999888777', 'Jr. Grau 240 - San Vicente', '2004-06-11', 'M'),
+('DNI', '70445511', 'Camila Belén', 'Espinoza Vega', 'camila.espinoza@vallegrande.edu.pe', '944556611', 'Calle Lima 832 - Nuevo Imperial', '2005-12-04', 'F'),
+('DNI', '70223345', 'Diego Alonso', 'Castro Morales', 'diego.castro@vallegrande.edu.pe', '922334455', 'Av. Libertadores 150', '2006-01-15', 'M'),
+('DNI', '70667788', 'Andrea Sofía', 'Navarro Ortiz', 'andrea.navarro@vallegrande.edu.pe', '966778899', 'Jr. Puno 365 - Quilmaná', '2005-05-29', 'F'),
+('Pasaporte', 'PAS009876', 'Hans', 'Müller', 'hans.muller@vallegrande.edu.pe', '912987345', 'Malecón de la Marina 110', '2002-02-28', 'M');
+
+
+-- =============================================================
+-- 10 REGISTROS PARA LA TABLA: matricula
+-- =============================================================
+-- (Usa los IDs del 3 al 12 correspondientes a los nuevos estudiantes y cursos)
+INSERT INTO matricula (id_estudiante, id_curso, ciclo, nota_final, estado_matricula) VALUES
+(3, 4, '2026-I', 16.50, 'activa'),
+(4, 4, '2026-I', 14.00, 'activa'),
+(5, 5, '2026-I', 18.00, 'activa'),
+(6, 6, '2026-I', 11.50, 'activa'),
+(7, 7, '2026-I', 15.00, 'activa'),
+(8, 8, '2026-I', 13.25, 'activa'),
+(9, 9, '2026-I', 17.00, 'activa'),
+(10, 10, '2026-I', 19.50, 'completada'),
+(11, 11, '2026-I', 10.00, 'activa'),
+(12, 12, '2026-I', NULL, 'activa');
